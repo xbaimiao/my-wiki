@@ -1,0 +1,57 @@
+<h1 class="toc-header" id="前言"> 前言</h1>
+<p>在使用<strong>HuskSync</strong>和其他同步插件时，我们发现<strong>无法同步某些附魔和物品</strong>,玩家<strong>背包有可能丢失</strong>。这给我们的服务器管理带来了很大的困扰。因此，我们开发了InvSync来解决这个问题。</p>
+<p>与其他同步插件不同的是，InvSync支持同步更多的附魔和物品，避免了数据丢失和不一致的问题。</p>
+<blockquote>
+<p>支持版本1.12.2-1.19.4 最新版Folia已支持</p>
+</blockquote>
+<h1 class="toc-header" id="介绍"> 介绍</h1>
+<ol>
+<li>InvSync是一款<strong>高效的跨服同步插件</strong>，它可以让您在多个服务器之间同步玩家背包、物品、经验等数据。</li>
+<li>InvSync采用了<strong>redis + mysql的储存方式</strong>，确保数据的<strong>安全性和实时性</strong>。</li>
+<li>InvSync<strong>易于配置和使用</strong>，可以轻松实现跨服同步，提高服务器的玩家体验和管理效率。</li>
+<li>InvSync还支持<strong>从HuskSync进行数据迁移</strong>，因此您可以轻松地切换到InvSync而无需担心玩家数据丢失</li>
+<li>对于在线玩家，您可以使用其他插件如CMI来编辑他们的背包数据。对于离线玩家，您可以<strong>使用InvSync的编辑功能来修改他们的背包和末影箱数据</strong>。</li>
+</ol>
+<h1 class="toc-header" id="视频"> 视频</h1>
+<a href="https://wuyuyun.xbaimiao.com/Apr-21-2023%2014-43-13.mp4" target="_blank">下方视频看不见请点击</a><br>
+<video controls="" autoplay="" name="media"><source src="https://wuyuyun.xbaimiao.com/Apr-21-2023%2014-43-13.mp4" type="video/mp4"></video>
+<h1 class="toc-header" id="命令"> 命令</h1>
+<p><img alt="命令" src="/ishot_2023-04-19_07.54.31.png"></p>
+<h1 class="toc-header" id="配置文件"> 配置文件</h1>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-YAML"># 调试模式（开启此选项后台日志会变多）
+debug: false
+redis:
+  host: localhost
+  port: 6379
+  #  password: ""
+mysql:
+  host: 'localhost'
+  port: 3306
+  database: 'database'
+  user: 'user'
+  passwd: 'passwd'
+  ssl: false
+sync:
+  # 是否同步 statistic 数据
+  statistics: true
+  # 是否同步经验等级
+  exp: true
+  # 是否同步末影箱
+  ender: true
+  # 是否同步血量
+  health: true
+  # 是否同步饥饿值
+  food: true
+</code></pre>
+<h1 class="toc-header" id="语言文件"> 语言文件</h1>
+<pre v-pre="true" class="prismjs line-numbers"><code class="language-YAML">inventory:
+  lock: '&amp;c你的背包已被锁定'
+  error: '&amp;c数据同步出错,请联系管理处理'
+  timeout: '§c加载数据超时'
+  not-exist: '§c玩家数据不存在'
+  edit:
+    success: '&amp;a编辑已生效'
+    title:
+      inventory: "§7编辑玩家 {0} 背包数据"
+      ender: "§7编辑玩家 {0} 末影箱数据"
+</code></pre>
